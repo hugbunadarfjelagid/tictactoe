@@ -9,7 +9,8 @@ public class FieldTest
     {
         Field fieldtest = new Field();
         Slot slottest = new Slot();
-        assertEquals(fieldtest.place(1),true);
-        assertEquals(fieldtest.place(0),false);
+        slottest.Slot = 1;
+        assertEquals(fieldtest.place(slottest),true);
+        assertEquals(fieldtest.place(slottest),false);
     }
 }
