@@ -1,4 +1,4 @@
-public class Player {
+public class Players {
     public int moves = 0;
     public boolean isTurn = false;
     private String name = "";
