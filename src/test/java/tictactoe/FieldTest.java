@@ -5,9 +5,11 @@ import static org.junit.Assert.assertTrue;
 public class FieldTest
 {
     @Test
-    public void EmptySlot() throws Exception
+    public void TestSlots() throws Exception
     {
-        Slot test = new Slot();
-        assertEquals(test.Slot(0),mark.Slot(0));
+        Field fieldtest = new Field();
+        Slot slottest = new Slot();
+        assertEquals(fieldtest.place(1),true;
+        assertEquals(fieldtest.place(0),false;
     }
 }
