@@ -31,7 +31,7 @@ public class tictactoe
                     }
                     game.makeMoveMouse(x,y,P1,Board);
                     switchPl(P1,P2);
-                    game.drawBoard(Board);
+                    game.markGrid(Board);
                     checkWin(P1,P2,Board);
                     moves++;
 
