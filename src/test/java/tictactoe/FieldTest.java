@@ -8,6 +8,7 @@ public class FieldTest
     {
         Field fieldtest = new Field();
         Slot slottest = new Slot();
+        slottest.Slot = 0;
         assertEquals(fieldtest.place(slottest),0);
     }
 }
