@@ -1,3 +1,5 @@
+import java.awt.*;
+
 public class Board
 {
 	public void drawBoard(int width, int height)
