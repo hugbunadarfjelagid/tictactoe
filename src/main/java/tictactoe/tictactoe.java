@@ -15,6 +15,7 @@ public class tictactoe
         Board game = new Board();
         game.drawBoard(600,600);
         prepareBoard();
+        preparePlayers();
 	}
 	
 	public void prepareBoard() {
@@ -27,4 +28,16 @@ public class tictactoe
 			turns++;
 		}
 	}
+	public void preparePlayers()
+	{
+		P1.setName("Player 1");
+		P2.setName("Player 2");
+		P1.isTurn = true;
+		P2.isTurn = false;
+        	P1.won = false;
+        	P2.won = false;
+	}
+	
+	
+	
 }
