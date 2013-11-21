@@ -8,7 +8,6 @@ public class tictactoetest
     public void boardsize()
     {
         Board testsize = new Board();
-
-        assertTrue(testsize.drawBoard(600,600) == game.drawBoard());
+        assertEquals(testsize.drawBoard(600,600),true);
     }
 }
