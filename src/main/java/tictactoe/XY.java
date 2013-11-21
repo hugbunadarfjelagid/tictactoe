@@ -1,4 +1,4 @@
-/*import java.awt.*;
+import java.awt.*;
 
 public class XY
 {
@@ -46,4 +46,4 @@ public class XY
             StdDraw.text(.80, .80, "O");
         StdDraw.show();
     }   
-}*/
+}
