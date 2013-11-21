@@ -22,7 +22,7 @@ public class Board
         StdDraw.square(.5, .5, .45);
 		StdDraw.show();
 	}
-	    public void markGrid(Field[] games)
+/*	    public void markGrid(Field[] games)
     {
         StdDraw.setPenColor(StdDraw.BLUE);
         StdDraw.setFont(new Font("Verdana", Font.BOLD, (int) (65*1.5)));
@@ -65,6 +65,6 @@ public class Board
         if (games[8].getSlot() == 2)
             StdDraw.text(.80, .80, "O");
         StdDraw.show();
-    }   
+    }   */
 
 }
