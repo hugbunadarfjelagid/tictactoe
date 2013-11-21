@@ -16,6 +16,7 @@ public class tictactoe
         game.drawBoard(600,600);
         prepareBoard();
         preparePlayers();
+        XY.markGrid(games);
 	}
 	
 	public void prepareBoard() {
