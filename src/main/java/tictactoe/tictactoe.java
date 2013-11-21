@@ -1,6 +1,8 @@
 public class tictactoe
 {	
 	int moves = 0;
+	public Player PX = new player();
+	public Player PO = new player();
 	public static void main(String[] args) {
         
         tictactoe newgame = new tictactoe();
