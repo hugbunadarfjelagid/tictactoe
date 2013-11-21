@@ -1,5 +1,6 @@
 public class tictactoe
 {	
+	int moves = 0;
 	public static void main(String[] args) {
         
         tictactoe newgame = new tictactoe();
@@ -10,5 +11,17 @@ public class tictactoe
 	{
         Board game = new Board();
         game.drawBoard(600,600);
+        prepareBoard();
+	}
+	
+	public void prepareBoard() {
+		int turns = 0;
+		moves = 0;
+		
+		while(turns < 9)
+		{
+			Board[turns] = new Field();
+			turns++;
+		}
 	}
 }
