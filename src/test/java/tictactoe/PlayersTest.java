@@ -15,7 +15,7 @@ public class PlayersTest
     public void GetNameTest() throws Exception
     {
         Players testplayerget = new Players();
-        assertEquals(testplayerget.setName("Frosti"), test.getName());
+        assertEquals(testplayerget.setName("Frosti"), testplayerget.getName());
     }
     @Test
     public void ChangeTurnTest() throws Exception
