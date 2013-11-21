@@ -7,20 +7,20 @@ public class PlayersTest
     @Test
     public void SetNameTest() throws Exception
     {
-        Player testplayerset = new Player();
+        Players testplayerset = new Players();
         testplayer.setName("Frosti");
         assertEquals(testplayer.getName(), "Frosti");
     }
     @Test
     public void GetNameTest() throws Exception
     {
-        Player testplayerget = new Player();
+        Players testplayerget = new Players();
         assertEquals(testplayerget.setName("Frosti"), test.getName());
     }
     @Test
     public void ChangeTurnTest() throws Exception
     {
-        Player changetest = new Player();
+        Players changetest = new Players();
         if (changetest.isTurn == false)
         {
             changetest.changeTurn();
