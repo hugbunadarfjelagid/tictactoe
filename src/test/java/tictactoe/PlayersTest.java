@@ -8,8 +8,8 @@ public class PlayersTest
     public void SetNameTest() throws Exception
     {
         Players testplayerset = new Players();
-        testplayer.setName("Frosti");
-        assertEquals(testplayer.getName(), "Frosti");
+        testplayerset.setName("Frosti");
+        assertEquals(testplayerset.getName(), "Frosti");
     }
     @Test
     public void GetNameTest() throws Exception
