@@ -1,5 +1,6 @@
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class tictactoetest
 {
@@ -8,6 +9,6 @@ public class tictactoetest
     {
         Board testsize = new Board();
 
-        assertEquals(testsize.drawBoard(600,600), game.drawBoard());
+        assertTrue(testsize.drawBoard(600,600) == game.drawBoard());
     }
 }
