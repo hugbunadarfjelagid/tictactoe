@@ -1,5 +1,6 @@
 public class tictactoe
 {	
+	public Field[] Board = new Field[9];
 	int moves = 0;
 	//public Player P1 = new player();
 	//public Player P2 = new player();
