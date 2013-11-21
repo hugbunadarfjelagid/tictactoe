@@ -4,6 +4,9 @@ public class tictactoe
 	int moves = 0;
 	public Players P1 = new Players();
 	public Players P2 = new Players();
+	public boolean testing = false;
+	public double x;
+	public double y;
 	public static void main(String[] args) {
         
         tictactoe newgame = new tictactoe();
