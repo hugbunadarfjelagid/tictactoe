@@ -66,5 +66,38 @@ public class Board
             StdDraw.text(.80, .80, "O");
         StdDraw.show();
     }   
+    public void makeMoveMouse(double x, double y, Players P1, Field[] board) {
+
+        Slot mP1 = new Slot();
+        mP1.Slot = 1;
+        Slot mP2 = new Slot();
+        mP2.Slot = 2;
+
+        Point2D mouseXY = new Point2D(x,y);
+
+        double fix = .15;
+        StdDraw.setPenRadius(0.002);
+        RectHV Frame1 = new RectHV(0.2-fix,0.2-fix,0.2+fix,0.2+fix);
+        if (Frame1.contains(mouseXY)){if (P1.isTurn == true){board[0].place(mP1);} else {board[0].place(mP2);}}
+        RectHV Frame2 = new RectHV(0.5-fix,0.2-fix,0.5+fix,0.2+fix);
+        if (Frame2.contains(mouseXY)){if (P1.isTurn == true){board[1].place(mP1);} else {board[1].place(mP2);}}
+        RectHV Frame3 = new RectHV(0.8-fix,0.2-fix,0.8+fix,0.2+fix);
+        if (Frame3.contains(mouseXY)){if (P1.isTurn == true){board[2].place(mP1);} else {board[2].place(mP2);}}
+        RectHV Frame4 = new RectHV(0.2-fix,0.5-fix,0.2+fix,0.5+fix);
+        if (Frame4.contains(mouseXY)){if (P1.isTurn == true){board[3].place(mP1);} else {board[3].place(mP2);}}
+        RectHV Frame5 = new RectHV(0.5-fix,0.5-fix,0.5+fix,0.5+fix);
+        if (Frame5.contains(mouseXY)){if (P1.isTurn == true){board[4].place(mP1);} else {board[4].place(mP2);}}
+        RectHV Frame6 = new RectHV(0.8-fix,0.5-fix,0.8+fix,0.5+fix);
+        if (Frame6.contains(mouseXY)){if (P1.isTurn == true){board[5].place(mP1);} else {board[5].place(mP2);}}
+        RectHV Frame7 = new RectHV(0.2-fix,0.8-fix,0.2+fix,0.8+fix);
+        if (Frame7.contains(mouseXY)){if (P1.isTurn == true){board[6].place(mP1);} else {board[6].place(mP2);}}
+        RectHV Frame8 = new RectHV(0.5-fix,0.8-fix,0.5+fix,0.8+fix);
+        if (Frame8.contains(mouseXY)){if (P1.isTurn == true){board[7].place(mP1);} else {board[7].place(mP2);}}
+        RectHV Frame9 = new RectHV(0.8-fix,0.8-fix,0.8+fix,0.8+fix);
+        if (Frame9.contains(mouseXY)){if (P1.isTurn == true){board[8].place(mP1);} else {board[8].place(mP2);}}
+
+        StdDraw.show();
+        StdDraw.show(200);
+    }
 
 }
