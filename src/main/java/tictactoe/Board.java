@@ -1,13 +1,12 @@
-//package main.java.tictactoe;
 import java.awt.*;
 
 public class Board
 {
     // Size and colors of the Canvas and squares
-	public void drawBoard(int width, int height)
-	{
-		StdDraw.setCanvasSize(width,height);
-		StdDraw.clear(StdDraw.WHITE);
+    public void drawBoard(int width, int height)
+    {
+        StdDraw.setCanvasSize(width,height);
+        StdDraw.clear(StdDraw.WHITE);
         StdDraw.setPenRadius(.0225);
         StdDraw.setPenColor(StdDraw.BLACK);
         StdDraw.square(.2, .2, .15);
@@ -22,13 +21,13 @@ public class Board
         StdDraw.setPenRadius(.035);
         StdDraw.setPenColor(StdDraw.WHITE);
         StdDraw.square(.5, .5, .45);
-		StdDraw.show();
-	}
+        StdDraw.show();
+    }
 
     // Font size, color and position of X's and O's
     public void markSpace(Space[] assign)
     {
-    	// User X is blue
+        // User X is blue
         StdDraw.setPenColor(StdDraw.BLUE);
         StdDraw.setFont(new Font("Verdana", Font.BOLD, (int) (97.5)));
         // Coordinates for X in each space
