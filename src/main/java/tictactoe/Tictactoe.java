@@ -20,7 +20,7 @@ public class Tictactoe
               Tictactoe newgame = new Tictactoe(); // Create instance of Tic-Tac-Toe
               newgame.playgame(); // Initialize game
           }
-        }
+        };
     }
 
     public void playgame() 
