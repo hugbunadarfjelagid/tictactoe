@@ -42,9 +42,6 @@
     <version>0.6.4-SNAPSHOT</version>
 </plugin>
 <plugin>
-    <groupId>org.jacoco</groupId>
-    <artifactId>jacoco-maven-plugin</artifactId>
-    <version>0.6.3.201306030806</version>
     <executions>
         <!--
            Prepares the property pointing to the JaCoCo runtime agent which
@@ -85,9 +82,6 @@
     </executions>
 </plugin>
 <plugin>
-    <groupId>org.jacoco</groupId>
-    <artifactId>jacoco-maven-plugin</artifactId>
-    <version>0.6.3.201306030806</version>
     <executions>
         <!-- The Executions required by unit tests are omitted. -->
         <!--
