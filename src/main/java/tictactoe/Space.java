@@ -1,25 +1,21 @@
-//package main.java.tictactoe;
 public class Space
 {
-    private boolean taken;
-    public Placeholder mark = new Placeholder();
-
-/*    private Boolean taken()
-    {
-        return taken; // Taken slot
-    }*/
+    private boolean taken; // boolean for a taken space
+    public Placeholder mark = new Placeholder(); // placeholder for space
     
+    // set space
     public void setSpace(Placeholder mark)
     {
         this.mark = mark;
     }
 
+    // get space
     public int getSpace()
     {
         return mark.assigned;
     }
 
-    // Mark slot if it's not taken
+    // Mark space if it's not taken
     public boolean place(Placeholder sign)
     {
         if (!(taken))
@@ -28,7 +24,6 @@ public class Space
             taken = true;
             return taken;
         }
-//        switchPl(1,2);
         return false;
     }
 }
