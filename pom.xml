@@ -8,16 +8,6 @@
         <artifactId>tictactoe</artifactId>
         <dependencies>
                 <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-servlet</artifactId>
-            <version>7.6.0.v20120127</version>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>2.5</version>
-        </dependency>
-                <dependency>
                         <groupId>junit</groupId>
                         <artifactId>junit</artifactId>
                         <version>4.8.1</version>
@@ -93,7 +83,11 @@
             </configuration>
         </execution>
     </executions>
-
+</plugin>
+<plugin>
+    <groupId>org.jacoco</groupId>
+    <artifactId>jacoco-maven-plugin</artifactId>
+    <version>0.6.3.201306030806</version>
     <executions>
         <!-- The Executions required by unit tests are omitted. -->
         <!--
@@ -177,18 +171,6 @@
         </execution>
     </executions>
 </plugin>
-<plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>2.4</version>
-                <executions>
-                    <execution>
-                        <id>copy-dependencies</id>
-                        <phase>package</phase>
-                        <goals><goal>copy-dependencies</goal></goals>
-                    </execution>
-                </executions>
-            </plugin>
 </plugins>
 </build>
 
