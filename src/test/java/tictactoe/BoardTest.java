@@ -10,7 +10,7 @@ public class BoardTest
     	int counter = 0;
     	for (int i = 0; i < 9; i++)
     	{
-    		btest[i].getSpace;
+    		btest[i].getSpace();
     		counter += i;
     	}
         assertEquals(counter,0);
