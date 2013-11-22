@@ -1,4 +1,4 @@
-package main.java.tictactoe;
+//package main.java.tictactoe;
 public class Space
 {
     private boolean taken;
