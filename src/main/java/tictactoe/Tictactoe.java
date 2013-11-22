@@ -12,15 +12,8 @@ public class Tictactoe
 
     public static void main(String[] args)
     {
-        get(new Route("/tictac")
-        {
-          @Override
-          public Object handle(Request request, Response response)
-          {
-              Tictactoe newgame = new Tictactoe(); // Create instance of Tic-Tac-Toe
-              newgame.playgame(); // Initialize game
-          }
-        });
+        Tictactoe newgame = new Tictactoe(); // Create instance of Tic-Tac-Toe
+        newgame.playgame(); // Initialize game
     }
 
     public void playgame() 
