@@ -20,7 +20,7 @@ public class UserTest
     @Test
     public void ChangeTurnTest() throws Exception
     {
-        Players changetest = new Players();
+        User changetest = new User();
         if (changetest.isTurn == false)
         {
             changetest.changeTurn();
