@@ -1,3 +1,6 @@
+import static spark.Spark.*;
+import spark.*;
+
 public class Tictactoe
 {   
     public Space[] Board = new Space[9]; // Gameboard with 9 spaces
@@ -9,8 +12,15 @@ public class Tictactoe
 
     public static void main(String[] args)
     {
-        Tictactoe newgame = new Tictactoe(); // Create instance of Tic-Tac-Toe
-        newgame.playgame(); // Initialize game
+        get(new Route("/tictac")
+        {
+          @Override
+          public Object handle(Request request, Response response)
+          {
+              Tictactoe newgame = new Tictactoe(); // Create instance of Tic-Tac-Toe
+              newgame.playgame(); // Initialize game
+          }
+        }
     }
 
     public void playgame() 
