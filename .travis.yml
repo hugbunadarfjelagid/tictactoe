@@ -5,6 +5,6 @@ deploy:
   provider: heroku
   api_key:
     secure: JVzVRhY3lmHSS4ejMTQxtDk3pRrMKVd/9Xw3RNCZmozz/aGSfBGkpmxu0iymHIDrplVKt/B8tBgthToObKc5X3QsFA0gUtvCpuzvYEHkO+z/dmQoejh5cfcYqYPbAQZIAmuOXFOCT2HuuSDB8aF7D45dXvOfNZ11jXdgFCqicFA=
-  app: salty-caverns-7794
+  app: hugb
   on:
     repo: hugbunadarfjelagid/tictactoe
