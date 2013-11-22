@@ -2,20 +2,20 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 
-public class PlayersTest
+public class UserTest
 {
     @Test
     public void SetNameTest() throws Exception
     {
-        Players testplayerset = new Players();
-        testplayerset.setName("Frosti");
-        assertEquals(testplayerset.getName(), "Frosti");
+        User testset = new User();
+        testset.setName("Frosti");
+        assertEquals(testset.getName(), "Frosti");
     }
     @Test
     public void GetNameTest() throws Exception
     {
-        Players testplayerget = new Players();
-        assertEquals(testplayerget.setName("Frosti"), testplayerget.getName());
+        User testget = new User();
+        assertEquals(testget.setName("Frosti"), testget.getName());
     }
     @Test
     public void ChangeTurnTest() throws Exception
