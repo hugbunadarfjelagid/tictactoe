@@ -3,11 +3,11 @@ import java.awt.*;
 public class Board
 {
     // Size and colors of the Canvas and squares
-	public void drawBoard(int width, int height)
-	{
-		StdDraw.setCanvasSize(width,height);
-		StdDraw.clear(StdDraw.DARK_GRAY);
-        StdDraw.setPenRadius(.0225);     //resize .015*1.5
+    public void drawBoard(int width, int height)
+    {
+        StdDraw.setCanvasSize(width,height);
+        StdDraw.clear(StdDraw.DARK_GRAY);
+        StdDraw.setPenRadius(.0225);
         StdDraw.setPenColor(StdDraw.WHITE);
         StdDraw.square(.2, .2, .15);
         StdDraw.square(.5, .2, .15);
@@ -21,14 +21,14 @@ public class Board
         StdDraw.setPenRadius(.035);
         StdDraw.setPenColor(StdDraw.DARK_GRAY);
         StdDraw.square(.5, .5, .45);
-		StdDraw.show();
-	}
+        StdDraw.show();
+    }
 
     // Font size, color and position of X's and O's
     public void markGrid(Field[] games)
     {
         StdDraw.setPenColor(StdDraw.BLUE);
-        StdDraw.setFont(new Font("Verdana", Font.BOLD, (int) (97.5))); // 65*1.5
+        StdDraw.setFont(new Font("Verdana", Font.BOLD, (int) (97.5)));
         if (games[0].getSlot() == 1)
             StdDraw.text(.20, .20, "X");
         if (games[1].getSlot() == 1)
@@ -80,11 +80,10 @@ public class Board
 
         Point2D mouseXY = new Point2D(x,y);
 
- //       double fix = .15;
         StdDraw.setPenRadius(0.002);
 
         // Placeholders for markers (first two - fix, second two + fix)
-        RectHV Frame1 = new RectHV(0.2,0.2,0.2,0.2);
+        RectHV Frame1 = new RectHV(0.05,0.05,0.35,0.35);
         if (Frame1.contains(mouseXY))
         {
             if (P1.isTurn == true)
@@ -97,7 +96,7 @@ public class Board
             }
         }
 
-        RectHV Frame2 = new RectHV(0.5,0.2,0.5,0.2);
+        RectHV Frame2 = new RectHV(0.35,0.05,0.65,0.35);
         if (Frame2.contains(mouseXY))
         {
             if (P1.isTurn == true)
@@ -110,7 +109,7 @@ public class Board
             }
         }
 
-        RectHV Frame3 = new RectHV(0.8,0.2,0.8,0.2);
+        RectHV Frame3 = new RectHV(0.65,0.05,0.95,0.35);
         if (Frame3.contains(mouseXY))
         {
             if (P1.isTurn == true)
@@ -123,7 +122,7 @@ public class Board
             }
         }
 
-        RectHV Frame4 = new RectHV(0.2,0.5,0.2,0.5);
+        RectHV Frame4 = new RectHV(0.05,0.35,0.35,0.65);
         if (Frame4.contains(mouseXY))
         {
             if (P1.isTurn == true)
@@ -136,7 +135,7 @@ public class Board
             }
         }
 
-        RectHV Frame5 = new RectHV(0.5,0.5,0.5,0.5);
+        RectHV Frame5 = new RectHV(0.35,0.35,0.65,0.65);
         if (Frame5.contains(mouseXY))
         {
             if (P1.isTurn == true)
@@ -149,7 +148,7 @@ public class Board
             }
         }
 
-        RectHV Frame6 = new RectHV(0.8,0.5,0.8,0.5);
+        RectHV Frame6 = new RectHV(0.65,0.35,0.95,0.65);
         if (Frame6.contains(mouseXY))
         {
             if (P1.isTurn == true)
@@ -162,7 +161,7 @@ public class Board
             }
         }
 
-        RectHV Frame7 = new RectHV(0.2,0.8,0.2,0.8);
+        RectHV Frame7 = new RectHV(0.05,0.65,0.35,0.95);
         if (Frame7.contains(mouseXY))
         {
             if (P1.isTurn == true)
@@ -175,7 +174,7 @@ public class Board
             }
         }
 
-        RectHV Frame8 = new RectHV(0.5,0.8,0.5,0.8);
+        RectHV Frame8 = new RectHV(0.35,0.65,0.65,0.95);
         if (Frame8.contains(mouseXY))
         {
             if (P1.isTurn == true)
@@ -188,7 +187,7 @@ public class Board
             }
         }
 
-        RectHV Frame9 = new RectHV(0.8,0.8,0.8,0.8);
+        RectHV Frame9 = new RectHV(0.65,0.65,0.95,0.95);
         if (Frame9.contains(mouseXY))
         {
             if (P1.isTurn == true)
