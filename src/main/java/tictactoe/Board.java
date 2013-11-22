@@ -1,4 +1,4 @@
-package main.java.tictactoe;
+//package main.java.tictactoe;
 import java.awt.*;
 
 public class Board
