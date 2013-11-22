@@ -7,7 +7,7 @@ public class TictactoeTest
     public void NrOfSpacesTest() throws Exception
     {
  //   	Space[] stest = new Space[9];
- //   	Board btest = new Board();
+    	Board btest = new Board();
 	int space = 0;
 	while(space < 9)
 	{
