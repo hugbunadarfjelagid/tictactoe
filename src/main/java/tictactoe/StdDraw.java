@@ -10,6 +10,7 @@
  *  Todo
  *  ----
  *    -  Add support for gradient fill, etc.
+ *    -  Fix setCanvasSize() so that it can only be called once.
  *
  *  Remarks
  *  -------
@@ -39,6 +40,9 @@ import javax.swing.*;
  *  <p>
  *  For additional documentation, see <a href="http://introcs.cs.princeton.edu/15inout">Section 1.5</a> of
  *  <i>Introduction to Programming in Java: An Interdisciplinary Approach</i> by Robert Sedgewick and Kevin Wayne.
+ *
+ *  @author Robert Sedgewick
+ *  @author Kevin Wayne
  */
 public final class StdDraw implements ActionListener, MouseListener, MouseMotionListener, KeyListener {
 
@@ -140,6 +144,7 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
 
     /**
      * Set the window size to the default size 512-by-512 pixels.
+     * This method must be called before any other commands.
      */
     public static void setCanvasSize() {
         setCanvasSize(DEFAULT_SIZE, DEFAULT_SIZE);
@@ -147,13 +152,14 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
 
     /**
      * Set the window size to w-by-h pixels.
+     * This method must be called before any other commands.
      *
      * @param w the width as a number of pixels
      * @param h the height as a number of pixels
-     * @throws a RunTimeException if the width or height is 0 or negative
+     * @throws a IllegalArgumentException if the width or height is 0 or negative
      */
     public static void setCanvasSize(int w, int h) {
-        if (w < 1 || h < 1) throw new RuntimeException("width and height must be positive");
+        if (w < 1 || h < 1) throw new IllegalArgumentException("width and height must be positive");
         width = w;
         height = h;
         init();
@@ -306,10 +312,10 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
     /**
      * Set the radius of the pen to the given size.
      * @param r the radius of the pen
-     * @throws RuntimeException if r is negative
+     * @throws IllegalArgumentException if r is negative
      */
     public static void setPenRadius(double r) {
-        if (r < 0) throw new RuntimeException("pen radius must be positive");
+        if (r < 0) throw new IllegalArgumentException("pen radius must be nonnegative");
         penRadius = r;
         float scaledPenRadius = (float) (r * DEFAULT_SIZE);
         BasicStroke stroke = new BasicStroke(scaledPenRadius, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND);
@@ -326,6 +332,7 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
      * Set the pen color to the default color (black).
      */
     public static void setPenColor() { setPenColor(DEFAULT_PEN_COLOR); }
+
     /**
      * Set the pen color to the given color. The available pen colors are
      * BLACK, BLUE, CYAN, DARK_GRAY, GRAY, GREEN, LIGHT_GRAY, MAGENTA,
@@ -335,6 +342,20 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
     public static void setPenColor(Color color) {
         penColor = color;
         offscreen.setColor(penColor);
+    }
+
+    /**
+     * Set the pen color to the given RGB color.
+     * @param red the amount of red (between 0 and 255)
+     * @param green the amount of green (between 0 and 255)
+     * @param blue the amount of blue (between 0 and 255)
+     * @throws IllegalArgumentException if the amount of red, green, or blue are outside prescribed range
+     */
+    public static void setPenColor(int red, int green, int blue) {
+        if (red   < 0 || red   >= 256) throw new IllegalArgumentException("amount of red must be between 0 and 255");
+        if (green < 0 || green >= 256) throw new IllegalArgumentException("amount of red must be between 0 and 255");
+        if (blue  < 0 || blue  >= 256) throw new IllegalArgumentException("amount of red must be between 0 and 255");
+        setPenColor(new Color(red, green, blue));
     }
 
     /**
@@ -404,10 +425,10 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
      * @param x the x-coordinate of the center of the circle
      * @param y the y-coordinate of the center of the circle
      * @param r the radius of the circle
-     * @throws RuntimeException if the radius of the circle is negative
+     * @throws IllegalArgumentException if the radius of the circle is negative
      */
     public static void circle(double x, double y, double r) {
-        if (r < 0) throw new RuntimeException("circle radius can't be negative");
+        if (r < 0) throw new IllegalArgumentException("circle radius must be nonnegative");
         double xs = scaleX(x);
         double ys = scaleY(y);
         double ws = factorX(2*r);
@@ -422,10 +443,10 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
      * @param x the x-coordinate of the center of the circle
      * @param y the y-coordinate of the center of the circle
      * @param r the radius of the circle
-     * @throws RuntimeException if the radius of the circle is negative
+     * @throws IllegalArgumentException if the radius of the circle is negative
      */
     public static void filledCircle(double x, double y, double r) {
-        if (r < 0) throw new RuntimeException("circle radius can't be negative");
+        if (r < 0) throw new IllegalArgumentException("circle radius must be nonnegative");
         double xs = scaleX(x);
         double ys = scaleY(y);
         double ws = factorX(2*r);
@@ -442,11 +463,11 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
      * @param y the y-coordinate of the center of the ellipse
      * @param semiMajorAxis is the semimajor axis of the ellipse
      * @param semiMinorAxis is the semiminor axis of the ellipse
-     * @throws RuntimeException if either of the axes are negative
+     * @throws IllegalArgumentException if either of the axes are negative
      */
     public static void ellipse(double x, double y, double semiMajorAxis, double semiMinorAxis) {
-        if (semiMajorAxis < 0) throw new RuntimeException("ellipse semimajor axis can't be negative");
-        if (semiMinorAxis < 0) throw new RuntimeException("ellipse semiminor axis can't be negative");
+        if (semiMajorAxis < 0) throw new IllegalArgumentException("ellipse semimajor axis must be nonnegative");
+        if (semiMinorAxis < 0) throw new IllegalArgumentException("ellipse semiminor axis must be nonnegative");
         double xs = scaleX(x);
         double ys = scaleY(y);
         double ws = factorX(2*semiMajorAxis);
@@ -462,11 +483,11 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
      * @param y the y-coordinate of the center of the ellipse
      * @param semiMajorAxis is the semimajor axis of the ellipse
      * @param semiMinorAxis is the semiminor axis of the ellipse
-     * @throws RuntimeException if either of the axes are negative
+     * @throws IllegalArgumentException if either of the axes are negative
      */
     public static void filledEllipse(double x, double y, double semiMajorAxis, double semiMinorAxis) {
-        if (semiMajorAxis < 0) throw new RuntimeException("ellipse semimajor axis can't be negative");
-        if (semiMinorAxis < 0) throw new RuntimeException("ellipse semiminor axis can't be negative");
+        if (semiMajorAxis < 0) throw new IllegalArgumentException("ellipse semimajor axis must be nonnegative");
+        if (semiMinorAxis < 0) throw new IllegalArgumentException("ellipse semiminor axis must be nonnegative");
         double xs = scaleX(x);
         double ys = scaleY(y);
         double ws = factorX(2*semiMajorAxis);
@@ -485,10 +506,10 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
      * @param angle1 the starting angle. 0 would mean an arc beginning at 3 o'clock.
      * @param angle2 the angle at the end of the arc. For example, if
      *        you want a 90 degree arc, then angle2 should be angle1 + 90.
-     * @throws RuntimeException if the radius of the circle is negative
+     * @throws IllegalArgumentException if the radius of the circle is negative
      */
     public static void arc(double x, double y, double r, double angle1, double angle2) {
-        if (r < 0) throw new RuntimeException("arc radius can't be negative");
+        if (r < 0) throw new IllegalArgumentException("arc radius must be nonnegative");
         while (angle2 < angle1) angle2 += 360;
         double xs = scaleX(x);
         double ys = scaleY(y);
@@ -504,10 +525,10 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
      * @param x the x-coordinate of the center of the square
      * @param y the y-coordinate of the center of the square
      * @param r radius is half the length of any side of the square
-     * @throws RuntimeException if r is negative
+     * @throws IllegalArgumentException if r is negative
      */
     public static void square(double x, double y, double r) {
-        if (r < 0) throw new RuntimeException("square side length can't be negative");
+        if (r < 0) throw new IllegalArgumentException("square side length must be nonnegative");
         double xs = scaleX(x);
         double ys = scaleY(y);
         double ws = factorX(2*r);
@@ -522,10 +543,10 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
      * @param x the x-coordinate of the center of the square
      * @param y the y-coordinate of the center of the square
      * @param r radius is half the length of any side of the square
-     * @throws RuntimeException if r is negative
+     * @throws IllegalArgumentException if r is negative
      */
     public static void filledSquare(double x, double y, double r) {
-        if (r < 0) throw new RuntimeException("square side length can't be negative");
+        if (r < 0) throw new IllegalArgumentException("square side length must be nonnegative");
         double xs = scaleX(x);
         double ys = scaleY(y);
         double ws = factorX(2*r);
@@ -542,11 +563,11 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
      * @param y the y-coordinate of the center of the rectangle
      * @param halfWidth is half the width of the rectangle
      * @param halfHeight is half the height of the rectangle
-     * @throws RuntimeException if halfWidth or halfHeight is negative
+     * @throws IllegalArgumentException if halfWidth or halfHeight is negative
      */
     public static void rectangle(double x, double y, double halfWidth, double halfHeight) {
-        if (halfWidth  < 0) throw new RuntimeException("half width can't be negative");
-        if (halfHeight < 0) throw new RuntimeException("half height can't be negative");
+        if (halfWidth  < 0) throw new IllegalArgumentException("half width must be nonnegative");
+        if (halfHeight < 0) throw new IllegalArgumentException("half height must be nonnegative");
         double xs = scaleX(x);
         double ys = scaleY(y);
         double ws = factorX(2*halfWidth);
@@ -562,11 +583,11 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
      * @param y the y-coordinate of the center of the rectangle
      * @param halfWidth is half the width of the rectangle
      * @param halfHeight is half the height of the rectangle
-     * @throws RuntimeException if halfWidth or halfHeight is negative
+     * @throws IllegalArgumentException if halfWidth or halfHeight is negative
      */
     public static void filledRectangle(double x, double y, double halfWidth, double halfHeight) {
-        if (halfWidth  < 0) throw new RuntimeException("half width can't be negative");
-        if (halfHeight < 0) throw new RuntimeException("half height can't be negative");
+        if (halfWidth  < 0) throw new IllegalArgumentException("half width must be nonnegative");
+        if (halfHeight < 0) throw new IllegalArgumentException("half height must be nonnegative");
         double xs = scaleX(x);
         double ys = scaleY(y);
         double ws = factorX(2*halfWidth);
@@ -632,7 +653,7 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
         // in case file is inside a .jar
         if ((icon == null) || (icon.getImageLoadStatus() != MediaTracker.COMPLETE)) {
             URL url = StdDraw.class.getResource(filename);
-            if (url == null) throw new RuntimeException("image " + filename + " not found");
+            if (url == null) throw new IllegalArgumentException("image " + filename + " not found");
             icon = new ImageIcon(url);
         }
 
@@ -644,7 +665,7 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
      * @param x the center x-coordinate of the image
      * @param y the center y-coordinate of the image
      * @param s the name of the image/picture, e.g., "ball.gif"
-     * @throws RuntimeException if the image is corrupt
+     * @throws IllegalArgumentException if the image is corrupt
      */
     public static void picture(double x, double y, String s) {
         Image image = getImage(s);
@@ -652,7 +673,7 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
         double ys = scaleY(y);
         int ws = image.getWidth(null);
         int hs = image.getHeight(null);
-        if (ws < 0 || hs < 0) throw new RuntimeException("image " + s + " is corrupt");
+        if (ws < 0 || hs < 0) throw new IllegalArgumentException("image " + s + " is corrupt");
 
         offscreen.drawImage(image, (int) Math.round(xs - ws/2.0), (int) Math.round(ys - hs/2.0), null);
         draw();
@@ -665,7 +686,7 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
      * @param y the center y-coordinate of the image
      * @param s the name of the image/picture, e.g., "ball.gif"
      * @param degrees is the number of degrees to rotate counterclockwise
-     * @throws RuntimeException if the image is corrupt
+     * @throws IllegalArgumentException if the image is corrupt
      */
     public static void picture(double x, double y, String s, double degrees) {
         Image image = getImage(s);
@@ -673,7 +694,7 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
         double ys = scaleY(y);
         int ws = image.getWidth(null);
         int hs = image.getHeight(null);
-        if (ws < 0 || hs < 0) throw new RuntimeException("image " + s + " is corrupt");
+        if (ws < 0 || hs < 0) throw new IllegalArgumentException("image " + s + " is corrupt");
 
         offscreen.rotate(Math.toRadians(-degrees), xs, ys);
         offscreen.drawImage(image, (int) Math.round(xs - ws/2.0), (int) Math.round(ys - hs/2.0), null);
@@ -689,18 +710,18 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
      * @param s the name of the image/picture, e.g., "ball.gif"
      * @param w the width of the image
      * @param h the height of the image
-     * @throws RuntimeException if the width height are negative
-     * @throws RuntimeException if the image is corrupt
+     * @throws IllegalArgumentException if the width height are negative
+     * @throws IllegalArgumentException if the image is corrupt
      */
     public static void picture(double x, double y, String s, double w, double h) {
         Image image = getImage(s);
         double xs = scaleX(x);
         double ys = scaleY(y);
-        if (w < 0) throw new RuntimeException("width is negative: " + w);
-        if (h < 0) throw new RuntimeException("height is negative: " + h);
+        if (w < 0) throw new IllegalArgumentException("width is negative: " + w);
+        if (h < 0) throw new IllegalArgumentException("height is negative: " + h);
         double ws = factorX(w);
         double hs = factorY(h);
-        if (ws < 0 || hs < 0) throw new RuntimeException("image " + s + " is corrupt");
+        if (ws < 0 || hs < 0) throw new IllegalArgumentException("image " + s + " is corrupt");
         if (ws <= 1 && hs <= 1) pixel(x, y);
         else {
             offscreen.drawImage(image, (int) Math.round(xs - ws/2.0),
@@ -721,7 +742,7 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
      * @param w the width of the image
      * @param h the height of the image
      * @param degrees is the number of degrees to rotate counterclockwise
-     * @throws RuntimeException if the image is corrupt
+     * @throws IllegalArgumentException if the image is corrupt
      */
     public static void picture(double x, double y, String s, double w, double h, double degrees) {
         Image image = getImage(s);
@@ -729,7 +750,7 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
         double ys = scaleY(y);
         double ws = factorX(w);
         double hs = factorY(h);
-        if (ws < 0 || hs < 0) throw new RuntimeException("image " + s + " is corrupt");
+        if (ws < 0 || hs < 0) throw new IllegalArgumentException("image " + s + " is corrupt");
         if (ws <= 1 && hs <= 1) pixel(x, y);
 
         offscreen.rotate(Math.toRadians(-degrees), xs, ys);
@@ -831,7 +852,7 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
     public static void show(int t) {
         defer = false;
         draw();
-        try { Thread.currentThread().sleep(t); }
+        try { Thread.sleep(t); }
         catch (InterruptedException e) { System.out.println("Error sleeping"); }
         defer = true;
     }
