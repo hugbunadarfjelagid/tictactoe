@@ -1,3 +1,6 @@
+import static spark.Spark.*;
+import spark.*;
+
 public class Tictactoe
 {   
     public Space[] Board = new Space[9]; // Gameboard with 9 spaces
