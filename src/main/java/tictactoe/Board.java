@@ -1,14 +1,15 @@
+package main.java.tictactoe;
 import java.awt.*;
 
 public class Board
 {
     // Size and colors of the Canvas and squares
-    public void drawBoard(int width, int height)
-    {
-        StdDraw.setCanvasSize(width,height);
-        StdDraw.clear(StdDraw.DARK_GRAY);
+	public void drawBoard(int width, int height)
+	{
+		StdDraw.setCanvasSize(width,height);
+		StdDraw.clear(StdDraw.WHITE);
         StdDraw.setPenRadius(.0225);
-        StdDraw.setPenColor(StdDraw.WHITE);
+        StdDraw.setPenColor(StdDraw.BLACK);
         StdDraw.square(.2, .2, .15);
         StdDraw.square(.5, .2, .15);
         StdDraw.square(.8, .2, .15);
@@ -19,184 +20,188 @@ public class Board
         StdDraw.square(.5, .8, .15);
         StdDraw.square(.8, .8, .15);
         StdDraw.setPenRadius(.035);
-        StdDraw.setPenColor(StdDraw.DARK_GRAY);
+        StdDraw.setPenColor(StdDraw.WHITE);
         StdDraw.square(.5, .5, .45);
-        StdDraw.show();
-    }
+		StdDraw.show();
+	}
 
     // Font size, color and position of X's and O's
-    public void markGrid(Field[] games)
+    public void markSpace(Space[] assign)
     {
+    	// User X is blue
         StdDraw.setPenColor(StdDraw.BLUE);
         StdDraw.setFont(new Font("Verdana", Font.BOLD, (int) (97.5)));
-        if (games[0].getSlot() == 1)
+        // Coordinates for X in each space
+        if (assign[0].getSpace() == 1)
             StdDraw.text(.20, .20, "X");
-        if (games[1].getSlot() == 1)
+        if (assign[1].getSpace() == 1)
             StdDraw.text(.50, .20, "X");
-        if (games[2].getSlot() == 1)
+        if (assign[2].getSpace() == 1)
             StdDraw.text(.80, .20, "X");
-        if (games[3].getSlot() == 1)
+        if (assign[3].getSpace() == 1)
             StdDraw.text(.20, .50, "X");
-        if (games[4].getSlot() == 1)
+        if (assign[4].getSpace() == 1)
             StdDraw.text(.50, .50, "X");
-        if (games[5].getSlot() == 1)
+        if (assign[5].getSpace() == 1)
             StdDraw.text(.80, .50, "X");
-        if (games[6].getSlot() == 1)
+        if (assign[6].getSpace() == 1)
             StdDraw.text(.20, .80, "X");
-        if (games[7].getSlot() == 1)
+        if (assign[7].getSpace() == 1)
             StdDraw.text(.50, .80, "X");
-        if (games[8].getSlot() == 1)
+        if (assign[8].getSpace() == 1)
             StdDraw.text(.80, .80, "X");
+        // User O is red
         StdDraw.setPenColor(StdDraw.RED);
         StdDraw.setFont(new Font("Verdana", Font.BOLD, (int) (97.5)));
-        if (games[0].getSlot() == 2)
+        // Coordinates for O in each space
+        if (assign[0].getSpace() == 2)
             StdDraw.text(.20, .20, "O");
-        if (games[1].getSlot() == 2)
+        if (assign[1].getSpace() == 2)
             StdDraw.text(.50, .20, "O");
-        if (games[2].getSlot() == 2)
+        if (assign[2].getSpace() == 2)
             StdDraw.text(.80, .20, "O");
-        if (games[3].getSlot() == 2)
+        if (assign[3].getSpace() == 2)
             StdDraw.text(.20, .50, "O");
-        if (games[4].getSlot() == 2)
+        if (assign[4].getSpace() == 2)
             StdDraw.text(.50, .50, "O");
-        if (games[5].getSlot() == 2)
+        if (assign[5].getSpace() == 2)
             StdDraw.text(.80, .50, "O");
-        if (games[6].getSlot() == 2)
+        if (assign[6].getSpace() == 2)
             StdDraw.text(.20, .80, "O");
-        if (games[7].getSlot() == 2)
+        if (assign[7].getSpace() == 2)
             StdDraw.text(.50, .80, "O");
-        if (games[8].getSlot() == 2)
+        if (assign[8].getSpace() == 2)
             StdDraw.text(.80, .80, "O");
         StdDraw.show();
     }
 
     // Users moves in game
-    public void makeMoveMouse(double x, double y, Players P1, Field[] board)
+    public void makeMoveMouse(double x, double y, User X, Space[] board)
     {
-        Slot mP1 = new Slot();
-        mP1.Slot = 1; // Marks X
-        Slot mP2 = new Slot();
-        mP2.Slot = 2; // Marks O
+        Placeholder x_marked = new Placeholder();
+        x_marked.assigned = 1; // Marks X
+        Placeholder o_marked = new Placeholder();
+        o_marked.assigned = 2; // Marks O
 
         Point2D mouseXY = new Point2D(x,y);
 
         StdDraw.setPenRadius(0.002);
 
-        // Placeholders for markers (first two - fix, second two + fix)
-        RectHV Frame1 = new RectHV(0.05,0.05,0.35,0.35);
-        if (Frame1.contains(mouseXY))
+        // Mark spaces with X or O
+        RectHV Space1 = new RectHV(0.05,0.05,0.35,0.35);
+        if (Space1.contains(mouseXY))
         {
-            if (P1.isTurn == true)
+            if (X.isTurn == true)
             {
-                board[0].place(mP1);
+                board[0].place(x_marked);
             }
             else
             {
-                board[0].place(mP2);
+                board[0].place(o_marked);
             }
         }
 
-        RectHV Frame2 = new RectHV(0.35,0.05,0.65,0.35);
-        if (Frame2.contains(mouseXY))
+        RectHV Space2 = new RectHV(0.35,0.05,0.65,0.35);
+        if (Space2.contains(mouseXY))
         {
-            if (P1.isTurn == true)
+            if (X.isTurn == true)
             {
-                board[1].place(mP1);
+                board[1].place(x_marked);
             }
             else
             {
-                board[1].place(mP2);
+                board[1].place(o_marked);
             }
         }
 
-        RectHV Frame3 = new RectHV(0.65,0.05,0.95,0.35);
-        if (Frame3.contains(mouseXY))
+        RectHV Space3 = new RectHV(0.65,0.05,0.95,0.35);
+        if (Space3.contains(mouseXY))
         {
-            if (P1.isTurn == true)
+            if (X.isTurn == true)
             {
-                board[2].place(mP1);
+                board[2].place(x_marked);
             }
             else
             {
-                board[2].place(mP2);
+                board[2].place(o_marked);
             }
         }
 
-        RectHV Frame4 = new RectHV(0.05,0.35,0.35,0.65);
-        if (Frame4.contains(mouseXY))
+        RectHV Space4 = new RectHV(0.05,0.35,0.35,0.65);
+        if (Space4.contains(mouseXY))
         {
-            if (P1.isTurn == true)
+            if (X.isTurn == true)
             {
-                board[3].place(mP1);
+                board[3].place(x_marked);
             }
             else
             {
-                board[3].place(mP2);
+                board[3].place(o_marked);
             }
         }
 
-        RectHV Frame5 = new RectHV(0.35,0.35,0.65,0.65);
-        if (Frame5.contains(mouseXY))
+        RectHV Space5 = new RectHV(0.35,0.35,0.65,0.65);
+        if (Space5.contains(mouseXY))
         {
-            if (P1.isTurn == true)
+            if (X.isTurn == true)
             {
-                board[4].place(mP1);
+                board[4].place(x_marked);
             }
             else
             {
-                board[4].place(mP2);
+                board[4].place(o_marked);
             }
         }
 
-        RectHV Frame6 = new RectHV(0.65,0.35,0.95,0.65);
-        if (Frame6.contains(mouseXY))
+        RectHV Space6 = new RectHV(0.65,0.35,0.95,0.65);
+        if (Space6.contains(mouseXY))
         {
-            if (P1.isTurn == true)
+            if (X.isTurn == true)
             {
-                board[5].place(mP1);
+                board[5].place(x_marked);
             }
             else
             {
-                board[5].place(mP2);
+                board[5].place(o_marked);
             }
         }
 
-        RectHV Frame7 = new RectHV(0.05,0.65,0.35,0.95);
-        if (Frame7.contains(mouseXY))
+        RectHV Space7 = new RectHV(0.05,0.65,0.35,0.95);
+        if (Space7.contains(mouseXY))
         {
-            if (P1.isTurn == true)
+            if (X.isTurn == true)
             {
-                board[6].place(mP1);
+                board[6].place(x_marked);
             }
             else
             {
-                board[6].place(mP2);
+                board[6].place(o_marked);
             }
         }
 
-        RectHV Frame8 = new RectHV(0.35,0.65,0.65,0.95);
-        if (Frame8.contains(mouseXY))
+        RectHV Space8 = new RectHV(0.35,0.65,0.65,0.95);
+        if (Space8.contains(mouseXY))
         {
-            if (P1.isTurn == true)
+            if (X.isTurn == true)
             {
-                board[7].place(mP1);
+                board[7].place(x_marked);
             }
             else
             {
-                board[7].place(mP2);
+                board[7].place(o_marked);
             }
         }
 
-        RectHV Frame9 = new RectHV(0.65,0.65,0.95,0.95);
-        if (Frame9.contains(mouseXY))
+        RectHV Space9 = new RectHV(0.65,0.65,0.95,0.95);
+        if (Space9.contains(mouseXY))
         {
-            if (P1.isTurn == true)
+            if (X.isTurn == true)
             {
-                board[8].place(mP1);
+                board[8].place(x_marked);
             }
             else
             {
-                board[8].place(mP2);
+                board[8].place(o_marked);
             }
         }
 
