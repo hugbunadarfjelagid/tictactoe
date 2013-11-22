@@ -8,7 +8,7 @@ public class SpaceTest
     {
         Space stest = new Space();
         Placeholder ptest = new Placeholder();
-        ptest.Placeholder = 0;
+        ptest.assigned = 0;
         assertEquals(stest.place(ptest),true);
     }
 }
