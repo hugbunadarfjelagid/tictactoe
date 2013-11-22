@@ -6,10 +6,11 @@ public class BoardTest
     @Test
     public void EmptyBoard() throws Exception
     {
+    	Board btest = new Board();
     	int counter = 0;
     	for (int i = 0; i < 9; i++)
     	{
-    		board[i].getSpace();
+    		btest[i].getSpace;
     		counter += i;
     	}
         assertEquals(counter,0);
