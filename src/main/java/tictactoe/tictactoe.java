@@ -7,12 +7,13 @@ public class tictactoe
 	public boolean testing = false;
 	public double x;
 	public double y;
-	public static void main(String[] args) {
-        
+
+	public static void main(String[] args)
+    {
         tictactoe newgame = new tictactoe();
         newgame.playgame();
-        
     }
+
 	public void playgame() 
 	{
         Board game = new Board();
@@ -20,30 +21,44 @@ public class tictactoe
         prepareBoard();
         preparePlayers();
         game.markGrid(Board);
-                    while ((!P1.won && !P2.won ) && (moves < 9)){
-                if (StdDraw.mousePressed() || testing) {
-                    if (!testing){
+        while ((!P1.won && !P2.won ) && (moves < 9))
+        {
+            if (StdDraw.mousePressed() || testing)
+            {
+                if (!testing)
+                {
                     x = StdDraw.mouseX();
-                    y = StdDraw.mouseY();}
-                    else {
-                        x = StdRandom.uniform(0.2, 0.8);
-                        y = StdRandom.uniform(0.2, 0.8);
-                    }
-                    game.makeMoveMouse(x,y,P1,Board);
-                    switchPl(P1,P2);
-                    game.markGrid(Board);
-                    checkWin(P1,P2,Board);
-                    moves++;
-
+                    y = StdDraw.mouseY();
                 }
+                else
+                {
+                    x = StdRandom.uniform(0.2, 0.8);
+                    y = StdRandom.uniform(0.2, 0.8);
+                }
+                game.makeMoveMouse(x,y,P1,Board);
+                switchPl(P1,P2);
+                game.markGrid(Board);
+                checkWin(P1,P2,Board);
+                moves++;
             }
-            if(P1.won){System.out.println("Player X won");}
-            else if(P2.won){System.out.println("Player O won");}
-            else{System.out.println("Draw");}
-                System.exit(0);
+        }
+        if(P1.won)
+        {
+            System.out.println("Player X won");
+        }
+        else if(P2.won)
+        {
+            System.out.println("Player O won");
+        }
+        else
+        {
+            System.out.println("Draw");
+        }
+        System.exit(0);
 	}
 	
-	public void prepareBoard() {
+	public void prepareBoard()
+    {
 		int turns = 0;
 		moves = 0;
 		
@@ -53,17 +68,19 @@ public class tictactoe
 			turns++;
 		}
 	}
-	public void preparePlayers()
+	
+    public void preparePlayers()
 	{
 		P1.setName("Player 1");
 		P2.setName("Player 2");
 		P1.isTurn = true;
 		P2.isTurn = false;
-        	P1.won = false;
-        	P2.won = false;
+    	P1.won = false;
+    	P2.won = false;
 	}
 	
-	    public void checkWin(Players P1, Players P2, Field[] board) {
+    public void checkWin(Players P1, Players P2, Field[] board)
+    {
         if (board[0].getSlot()==1 && board[4].getSlot()==1 && board[8].getSlot()==1)
             P1.won = true;
         if (board[2].getSlot()==1 && board[4].getSlot()==1 && board[6].getSlot()==1)
@@ -98,9 +115,9 @@ public class tictactoe
             P2.won = true;
     }
 	
-	   public void switchPl(Players P1, Players P2) {
+    public void switchPl(Players P1, Players P2)
+    {
         P1.changeTurn();
         P2.changeTurn();
     }
-	
 }
