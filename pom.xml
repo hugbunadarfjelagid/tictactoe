@@ -40,11 +40,6 @@
     <groupId>org.jacoco</groupId>
     <artifactId>jacoco-maven-plugin</artifactId>
     <version>0.6.4-SNAPSHOT</version>
-</plugin>
-<plugin>
-    <groupId>org.jacoco</groupId>
-    <artifactId>jacoco-maven-plugin</artifactId>
-    <version>0.6.3.201306030806</version>
     <executions>
         <!--
            Prepares the property pointing to the JaCoCo runtime agent which
@@ -82,18 +77,6 @@
                 <outputDirectory>${project.reporting.outputDirectory}/jacoco-ut</outputDirectory>
             </configuration>
         </execution>
-    </executions>
-</plugin>
-<plugin>
-    <groupId>org.jacoco</groupId>
-    <artifactId>jacoco-maven-plugin</artifactId>
-    <version>0.6.3.201306030806</version>
-    <executions>
-        <!-- The Executions required by unit tests are omitted. -->
-        <!--
-           Prepares the property pointing to the JaCoCo runtime agent which
-           is passed as VM argument when Maven the Failsafe plugin is executed.
-       -->
         <execution>
             <id>pre-integration-test</id>
             <phase>pre-integration-test</phase>
@@ -110,10 +93,6 @@
                 <propertyName>failsafeArgLine</propertyName>
             </configuration>
         </execution>
-        <!--
-           Ensures that the code coverage report for integration tests after
-           integration tests have been run.
-       -->
         <execution>
             <id>post-integration-test</id>
             <phase>post-integration-test</phase>
