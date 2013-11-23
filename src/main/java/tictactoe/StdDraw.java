@@ -1,3 +1,5 @@
+package tictactoe;
+
 /*************************************************************************
  *  Compilation:  javac StdDraw.java
  *  Execution:    java StdDraw
