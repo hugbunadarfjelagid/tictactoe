@@ -13,7 +13,7 @@ public class Tictactoe
     public static void main(String[] args)
     {
         Tictactoe newgame = new Tictactoe(); // Create instance of Tic-Tac-Toe
-        newgame.playgame(); // Initialize game
+        return newgame.playgame(); // Initialize game
     }
 
     public void playgame() 
