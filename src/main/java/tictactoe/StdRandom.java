@@ -1,3 +1,5 @@
+package tictactoe;
+
 /*************************************************************************
  *  Compilation:  javac StdRandom.java
  *  Execution:    java StdRandom
