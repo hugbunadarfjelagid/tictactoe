@@ -1,3 +1,5 @@
+package tictactoe;
+
 /*************************************************************************
  *  Compilation:  javac Point2D.java
  *
