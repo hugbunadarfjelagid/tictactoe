@@ -1,3 +1,3 @@
 #!/bin/bash
 
-git push heroku master
+scp target/tictactoe-1.0-SNAPSHOT-jar-with-dependencies frostib@ftp.burgerbeer.org/htdocs
