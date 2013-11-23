@@ -12,18 +12,8 @@ public class Tictactoe
 
     public static void main(String[] args)
     {
-        staticFileLocation("/public");
-        setPort(Integer.valueOf(System.getenv("PORT")));
-		post(new Route("/tic")
-		{
-            @Override
-            public Object handle(Request request, Response response)
-            {
-		        Tictactoe newgame = new Tictactoe(); // Create instance of Tic-Tac-Toe
-        		newgame.playgame(); // Initialize game
-        		return 0;
-            }
-        });
+	Tictactoe newgame = new Tictactoe(); // Create instance of Tic-Tac-Toe
+        newgame.playgame(); // Initialize game
     }
 
     public void playgame() 
