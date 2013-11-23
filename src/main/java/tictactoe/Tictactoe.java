@@ -1,21 +1,3 @@
-import static spark.Spark.*;
-import spark.*;
-
-public class Tictactoe {
-
-   public static void main(String[] args) {
-      
-      get(new Route("/hello") {
-         @Override
-         public Object handle(Request request, Response response) {
-            return "Hello World!";
-         }
-      });
-
-   }
-
-}
-/*
 public class Tictactoe
 {   
     public Space[] Board = new Space[9]; // Gameboard with 9 spaces
@@ -139,4 +121,3 @@ public class Tictactoe
         O.changeTurn();
     }
 }
-*/
