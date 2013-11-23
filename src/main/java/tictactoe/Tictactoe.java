@@ -20,7 +20,8 @@ public class Tictactoe
             public Object handle(Request request, Response response)
             {
 		        Tictactoe newgame = new Tictactoe(); // Create instance of Tic-Tac-Toe
-        		return newgame.playgame(); // Initialize game
+        		newgame.playgame(); // Initialize game
+        		return 0;
             }
         });
     }
