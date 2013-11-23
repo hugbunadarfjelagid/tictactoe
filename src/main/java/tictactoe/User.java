@@ -1,3 +1,5 @@
+package tictactoe;
+
 public class User
 {
     public boolean isTurn = false;
