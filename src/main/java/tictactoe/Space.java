@@ -1,3 +1,5 @@
+package tictactoe;
+
 public class Space
 {
     private boolean taken; // boolean for a taken space
