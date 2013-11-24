@@ -6,7 +6,7 @@ import static org.junit.Assert.assertEquals;
 public class SpaceTest
 {
     @Test
-    public void EmptySpaceTest() throws Exception
+    public void EmptySpaceTest()
     {
         Space stest = new Space();
         Placeholder ptest = new Placeholder();
