@@ -6,7 +6,7 @@ cp target/tictactoe-1.0-SNAPSHOT-jar-with-dependencies.jar ../gDrive/mylla/ticta
 
 cd target/site/jacoco-ut
 
-zip codecoverage *
+zip code_coverage *
 
 mv code_coverage.zip ~/gDrive/mylla/code_coverage.zip
 
