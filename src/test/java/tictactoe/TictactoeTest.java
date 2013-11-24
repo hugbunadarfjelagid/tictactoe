@@ -17,20 +17,18 @@ public class TictactoeTest
 	}
         assertEquals(space,9);
     }
+/* to be implemented
     
     @Test
     public static void mainTest(String[] args)
     {
-        /* to be implemented
         Tictactoe newgame = new Tictactoe(); // Create instance of Tic-Tac-Toe
         newgame.playgame(); // Initialize game
-        */
     }
 
     @Test
     public void playgameTest() 
     {
-        /* to be implemented
         Board play = new Board(); // Create instance of a gameboard
         play.drawBoard(600,600); // Draw gameboard 600x600 pixels
         prepareBoard(); // Prepare gameboard
@@ -60,13 +58,11 @@ public class TictactoeTest
             System.out.println("Draw");
         }
  //       System.exit(0);
-        */
     }
     
     @Test
     public void prepareBoardTest()
     {
-        /* to be implemented
         int space = 0; // Initialize counter for spaces
         // Create placeholder for each space on the gameboard
         while(space < 9)
@@ -74,13 +70,11 @@ public class TictactoeTest
             Board[space] = new Space();
             space++;
         }
-        */
     }
     
     @Test
     public void preparePlayersTest()
     {
-        /* to be implemented
         // Set the players names
         userX.setName("Player X");
         userO.setName("Player O");
@@ -90,14 +84,12 @@ public class TictactoeTest
         // Neither has won. The game hasn't started
         userX.won = false;
         userO.won = false;
-        */
     }
     
     // Check if either player has won
     @Test
     public void checkWinTest(User X, User O, Space[] board)
     {
-        /* to be implemented
         // Has player X won?
         if (board[0].getSpace()==1 && board[4].getSpace()==1 && board[8].getSpace()==1)
             X.won = true;
@@ -137,16 +129,14 @@ public class TictactoeTest
             && board[3].getSpace()!=0 && board[4].getSpace()!=0 && board[5].getSpace()!=0
             && board[6].getSpace()!=0 && board[7].getSpace()!=0 && board[8].getSpace()!=0)
             tie = true;
-        */
     }
     
     // Change players turn
     @Test
     public void switchPlTest(User X, User O)
     {
-        /* to be implemented
         X.changeTurn();
         O.changeTurn();
-        */
     }
+*/
 }
