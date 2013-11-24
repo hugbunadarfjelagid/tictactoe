@@ -19,7 +19,7 @@ public class TictactoeTest
     }
     
     @Test
-    public static void main(String[] args)
+    public static void mainTest(String[] args)
     {
         /* to be implemented
         Tictactoe newgame = new Tictactoe(); // Create instance of Tic-Tac-Toe
