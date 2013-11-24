@@ -4,6 +4,8 @@ mvn package
 
 cp target/tictactoe-1.0-SNAPSHOT-jar-with-dependencies.jar ../gDrive/mylla/tictactoe.jar
 
+cp -r target/site ../gDrive/mylla/report
+
 cd ../gDrive
 
 grive 
