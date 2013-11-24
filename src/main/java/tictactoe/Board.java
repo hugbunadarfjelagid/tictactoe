@@ -52,7 +52,7 @@ public class Board
         if (assign[8].getSpace() == 1)
             StdDraw.text(.80, .80, "X");
         // User O is red
-        StdDraw.setPenColor(StdDraw.YELLOW);
+        StdDraw.setPenColor(StdDraw.RED);
         StdDraw.setFont(new Font("Verdana", Font.BOLD, (int) (97.5)));
         // Coordinates for O in each space
         if (assign[0].getSpace() == 2)
