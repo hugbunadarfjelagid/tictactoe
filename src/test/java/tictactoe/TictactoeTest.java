@@ -6,7 +6,7 @@ import static org.junit.Assert.assertEquals;
 public class TictactoeTest
 {
     @Test
-    public void NrOfSpacesTest() throws Exception
+    public void NrOfSpacesTest()
     {
     	Space[] stest = new Space[9];
 	int space = 0;
