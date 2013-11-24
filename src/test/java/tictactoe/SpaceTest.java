@@ -32,7 +32,7 @@ public class SpaceTest
 
     // Mark space if it's not taken
     @Test
-    public boolean place(Placeholder sign)
+    public boolean placeTest(Placeholder sign)
     {
         /* to be implemented
         if (!(taken))
