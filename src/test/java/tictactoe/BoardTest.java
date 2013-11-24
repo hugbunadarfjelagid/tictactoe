@@ -7,11 +7,11 @@ import java.awt.*;
 
 public class BoardTest
 {
+/* to be implemented
     // Size and colors of the Canvas and squares
     @Test
     public void drawBoardTest(int width, int height)
     {
-        /* to be implemented
         StdDraw.setCanvasSize(width,height);
         StdDraw.clear(StdDraw.WHITE);
         StdDraw.setPenRadius(.0225);
@@ -29,14 +29,12 @@ public class BoardTest
         StdDraw.setPenColor(StdDraw.WHITE);
         StdDraw.square(.5, .5, .45);
         StdDraw.show();
-        */
     }
 
     // Font size, color and position of X's and O's
     @Test
     public void markSpaceTest(Space[] assign)
     {
-        /* to be implemented
         // User X is blue
         StdDraw.setPenColor(StdDraw.BLUE);
         StdDraw.setFont(new Font("Verdana", Font.BOLD, (int) (97.5)));
@@ -82,14 +80,12 @@ public class BoardTest
         if (assign[8].getSpace() == 2)
             StdDraw.text(.80, .80, "O");
         StdDraw.show();
-        */
     }
 
     // Users moves in game
     @Test
     public void makeMoveMouseTest(double x, double y, User X, Space[] board)
     {
-        /* to be implemented
         Placeholder x_marked = new Placeholder();
         x_marked.assigned = 1; // Marks X
         Placeholder o_marked = new Placeholder();
@@ -219,6 +215,6 @@ public class BoardTest
 
         StdDraw.show();
         StdDraw.show(200);
-        */
     }
+*/
 }
