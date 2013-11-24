@@ -13,28 +13,24 @@ public class SpaceTest
         ptest.assigned = 0;
         assertEquals(stest.place(ptest),true);
     }
+/* to be implemented
     @Test
     public void setSpaceTest(Placeholder mark)
     {
-        /* to be implemented
         this.mark = mark;
-        */
     }
 
     // get space
     @Test
     public int getSpaceTest()
     {
-        /* to be implemented
         return mark.assigned;
-        */
     }
 
     // Mark space if it's not taken
     @Test
     public boolean placeTest(Placeholder sign)
     {
-        /* to be implemented
         if (!(taken))
         {
             mark = sign;
@@ -42,8 +38,7 @@ public class SpaceTest
             return taken;
         }
         return false;
-        */
     }
-
+*/
 }
 
