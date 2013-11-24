@@ -4,9 +4,9 @@ mvn package
 
 cp target/tictactoe-1.0-SNAPSHOT-jar-with-dependencies.jar ../gDrive/mylla/tictactoe.jar
 
-cd target/site/jacoco-ut
+cd target/site
 
-zip code_coverage *
+zip -r code_coverage .
 
 mv code_coverage.zip ~/gDrive/mylla/code_coverage.zip
 
