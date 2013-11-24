@@ -2,6 +2,8 @@
 
 mvn package
 
-mv target/tictactoe-1.0-SNAPSHOT-jar-with-dependencies.jar ../gDrive/tictactoe.jar
+cp target/tictactoe-1.0-SNAPSHOT-jar-with-dependencies.jar ../gDrive/tictactoe.jar
 
-grive
+cd ../gDrive
+
+grive 
