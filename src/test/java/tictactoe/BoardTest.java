@@ -8,6 +8,7 @@ import java.awt.*;
 public class BoardTest
 {
     // Size and colors of the Canvas and squares
+    @Test
     public void drawBoardTest(int width, int height)
     {
         /* to be implemented
@@ -32,6 +33,7 @@ public class BoardTest
     }
 
     // Font size, color and position of X's and O's
+    @Test
     public void markSpaceTest(Space[] assign)
     {
         /* to be implemented
@@ -84,6 +86,7 @@ public class BoardTest
     }
 
     // Users moves in game
+    @Test
     public void makeMoveMouseTest(double x, double y, User X, Space[] board)
     {
         /* to be implemented
