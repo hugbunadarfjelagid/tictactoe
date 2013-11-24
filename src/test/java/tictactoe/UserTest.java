@@ -7,20 +7,20 @@ import static org.junit.Assert.assertEquals;
 public class UserTest
 {
     @Test
-    public void SetNameTest() throws Exception
+    public void SetNameTest()
     {
         User testset = new User();
         testset.setName("Frosti");
         assertEquals(testset.getName(), "Frosti");
     }
     @Test
-    public void GetNameTest() throws Exception
+    public void GetNameTest()
     {
         User testget = new User();
         assertEquals(testget.setName("Frosti"), testget.getName());
     }
     @Test
-    public void ChangeTurnTest() throws Exception
+    public void ChangeTurnTest()
     {
         User changetest = new User();
         if (changetest.isTurn == false)
