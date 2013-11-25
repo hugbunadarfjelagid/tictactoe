@@ -30,7 +30,7 @@ public class Board
     public void markSpace(Space[] assign)
     {
         // User X is blue
-        StdDraw.setPenColor(StdDraw.BLUE);
+        StdDraw.setPenColor(StdDraw.YELLOW);
         StdDraw.setFont(new Font("Verdana", Font.BOLD, (int) (97.5)));
         // Coordinates for X in each space
         if (assign[0].getSpace() == 1)
